@@ -1,1 +1,802 @@
-under Development 
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prithviraj Magar | DevOps Engineer & Cloud Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f5d4;
+            --secondary: #00bbf9;
+            --dark: #0a192f;
+            --darker: #020c1b;
+            --light: #ccd6f6;
+        }
+        
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background-color: var(--dark);
+            color: var(--light);
+            transition: all 0.3s ease;
+        }
+        
+        .terminal {
+            border: 1px solid rgba(0, 245, 212, 0.2);
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 245, 212, 0.1);
+            background-color: rgba(10, 25, 47, 0.8);
+        }
+        
+        .terminal-caret {
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes blink-caret {
+            from, to { opacity: 0 }
+            50% { opacity: 1 }
+        }
+        
+        .typewriter {
+            border-right: 2px solid var(--primary);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        
+        .skill-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 245, 212, 0.3);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0, 245, 212, 0.2);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(0, 245, 212, 0.2);
+        }
+        
+        .cloud-pattern {
+            background-image: 
+                radial-gradient(circle at 1px 1px, rgba(0, 245, 212, 0.1) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        
+        .aws-badge {
+            box-shadow: 0 0 20px rgba(255, 153, 0, 0.3);
+            border: 1px solid rgba(255, 153, 0, 0.3);
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-darker">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-opacity-90 backdrop-blur-sm bg-dark border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <span class="text-2xl font-bold text-primary">PM</span>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="ml-10 flex items-baseline space-x-4">
+                            <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-primary hover:bg-slate-800">Home</a>
+                            <a href="#experience" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-primary hover:bg-slate-800">Experience</a>
+                            <a href="#skills" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-primary hover:bg-slate-800">Skills</a>
+                            <a href="#certifications" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-primary hover:bg-slate-800">Certifications</a>
+                            <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-primary hover:bg-slate-800">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#resume" class="px-4 py-2 text-sm font-medium rounded-md border border-primary text-primary hover:bg-primary hover:text-slate-900 transition duration-300">Resume</a>
+                    <div class="md:hidden">
+                        <button id="mobile-menu-button" class="p-2 rounded-md text-primary hover:bg-slate-800 focus:outline-none">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark border-t border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-slate-800">Home</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-primary hover:bg-slate-800">Experience</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-primary hover:bg-slate-800">Skills</a>
+                <a href="#certifications" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-primary hover:bg-slate-800">Certifications</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-primary hover:bg-slate-800">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 cloud-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Prithviraj Magar</span>
+                </h1>
+                <div class="terminal inline-block px-6 py-4 mb-8">
+                    <div class="flex items-center mb-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="font-mono">
+                        <p class="text-primary">$ <span id="typewriter"></span><span class="terminal-caret">|</span></p>
+                    </div>
+                </div>
+                <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-12">
+                    DevOps Engineer | Cloud Architect | AWS Certified Solutions Architect | Passionate about building scalable, reliable infrastructure
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <p class="text-3xl font-bold text-primary">3+</p>
+                        <p class="text-sm text-slate-400">Years Experience</p>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <p class="text-3xl font-bold text-primary">40%</p>
+                        <p class="text-sm text-slate-400">Faster Deployments</p>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700">
+                        <p class="text-3xl font-bold text-primary">100+</p>
+                        <p class="text-sm text-slate-400">Infra Components</p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#experience" class="px-8 py-3 bg-primary text-slate-900 font-bold rounded-md hover:bg-opacity-90 transition duration-300">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border border-primary text-primary font-bold rounded-md hover:bg-slate-800 transition duration-300">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mini Terminal -->
+        <div class="terminal fixed bottom-4 right-4 w-80 p-4 hidden md:block">
+            <div class="flex items-center mb-2">
+                <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <div class="font-mono text-sm">
+                <p class="text-primary">$ <span id="console-text">Welcome to Prithviraj's Portfolio</span><span class="terminal-caret">|</span></p>
+                <div id="console-commands" class="hidden mt-2">
+                    <p class="text-slate-400">Available commands:</p>
+                    <p class="text-slate-400">- view projects</p>
+                    <p class="text-slate-400">- view resume</p>
+                    <p class="text-slate-400">- connect linkedin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Professional Experience</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-primary mb-6">Neosoft Systems</h3>
+                <div class="space-y-8 relative border-l-2 border-slate-800 pl-8">
+                    <div class="timeline-item relative">
+                        <h4 class="text-xl font-bold text-primary">DevOps Engineer</h4>
+                        <p class="text-slate-400">Jan 2022 - Present</p>
+                        <p class="text-slate-400 mt-2">Designing and implementing cloud infrastructure solutions with a focus on automation, scalability, and reliability.</p>
+                    </div>
+                    <div class="timeline-item relative">
+                        <h4 class="text-xl font-bold text-primary">Cloud Infrastructure Associate</h4>
+                        <p class="text-slate-400">Jun 2021 - Dec 2021</p>
+                        <p class="text-slate-400 mt-2">Assisted in migrating legacy systems to cloud-native architectures.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-slate-800 rounded-lg overflow-hidden transition duration-500 hover:shadow-lg border border-slate-700">
+                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                        <i class="fab fa-aws text-6xl text-slate-900"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Scalable MERN Stack on AWS</h3>
+                        <p class="text-slate-400 mb-4">Designed and implemented a highly available MERN stack infrastructure on AWS using Terraform and Kubernetes.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-primary rounded">Terraform</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-primary rounded">EKS</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-primary rounded">CI/CD</span>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded mb-4">
+                            <p class="text-sm text-primary font-bold">✓ 40% improvement in deployment reliability</p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-primary hover:underline text-sm font-medium">View Case Study</a>
+                            <a href="#" class="text-slate-400 hover:text-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-slate-800 rounded-lg overflow-hidden transition duration-500 hover:shadow-lg border border-slate-700">
+                    <div class="h-48 bg-gradient-to-r from-secondary to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-server text-6xl text-slate-900"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Microservices Migration</h3>
+                        <p class="text-slate-400 mb-4">Led migration from monolithic architecture to microservices using AWS ECS, Fargate, and RDS.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-primary rounded">ECS</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-primary rounded">Fargate</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-primary rounded">RDS</span>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded mb-4">
+                            <p class="text-sm text-primary font-bold">✓ 40% increase in scalability</p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-primary hover:underline text-sm font-medium">View Case Study</a>
+                            <a href="#" class="text-slate-400 hover:text-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-slate-800 rounded-lg overflow-hidden transition duration-500 hover:shadow-lg border border-slate-700">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                        <i class="fab fa-linux text-6xl text-slate-900"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-primary mb-2">Linux Server Automation</h3>
+                        <p class="text-slate-400 mb-4">Automated provisioning and configuration of Linux servers using Ansible, Docker, and Jenkins.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-primary rounded">Ansible</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-primary rounded">Docker</span>
+                            <span class="text-xs px-2 py-1 bg-slate-700 text-primary rounded">Jenkins</span>
+                        </div>
+                        <div class="bg-slate-900 p-3 rounded mb-4">
+                            <p class="text-sm text-primary font-bold">✓ 35% faster incident response</p>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-primary hover:underline text-sm font-medium">View Case Study</a>
+                            <a href="#" class="text-slate-400 hover:text-primary">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-dark border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Technical Skills</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Cloud Platforms -->
+                <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-cloud text-2xl text-primary mr-3"></i>
+                        <h3 class="text-xl font-bold text-primary">Cloud Platforms</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">AWS</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Azure</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">GCP</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">EC2</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">S3</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Lambda</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">RDS</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">VPC</span>
+                    </div>
+                </div>
+                
+                <!-- CI/CD -->
+                <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-sync-alt text-2xl text-primary mr-3"></i>
+                        <h3 class="text-xl font-bold text-primary">CI/CD</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Jenkins</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">GitLab CI</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">GitHub Actions</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">ArgoCD</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">CircleCI</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">CodePipeline</span>
+                    </div>
+                </div>
+                
+                <!-- Containerization -->
+                <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-docker text-2xl text-primary mr-3"></i>
+                        <h3 class="text-xl font-bold text-primary">Containerization</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Docker</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Kubernetes</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">ECS</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">EKS</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Fargate</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Helm</span>
+                    </div>
+                </div>
+                
+                <!-- Infrastructure as Code -->
+                <div class="bg-slate-800 rounded-lg p-6 border border-slate-700">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-2xl text-primary mr-3"></i>
+                        <h3 class="text-xl font-bold text-primary">Infrastructure as Code</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Terraform</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">CloudFormation</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Ansible</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">Pulumi</span>
+                        <span class="skill-badge px-3 py-1 bg-slate-900 text-primary rounded-full text-sm transition duration-300">CDK</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tools -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-primary mb-8 text-center">Tools & Technologies</h3>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-2 border border-slate-700 hover:border-primary transition duration-300">
+                            <i class="fab fa-git-alt text-3xl text-primary"></i>
+                        </div>
+                        <p class="text-sm text-slate-400">Git</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-2 border border-slate-700 hover:border-primary transition duration-300">
+                            <i class="fab fa-linux text-3xl text-primary"></i>
+                        </div>
+                        <p class="text-sm text-slate-400">Linux</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-2 border border-slate-700 hover:border-primary transition duration-300">
+                            <i class="fas fa-network-wired text-3xl text-primary"></i>
+                        </div>
+                        <p class="text-sm text-slate-400">Networking</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-2 border border-slate-700 hover:border-primary transition duration-300">
+                            <i class="fas fa-shield-alt text-3xl text-primary"></i>
+                        </div>
+                        <p class="text-sm text-slate-400">Security</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-2 border border-slate-700 hover:border-primary transition duration-300">
+                            <i class="fas fa-chart-line text-3xl text-primary"></i>
+                        </div>
+                        <p class="text-sm text-slate-400">Monitoring</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-2 border border-slate-700 hover:border-primary transition duration-300">
+                            <i class="fas fa-database text-3xl text-primary"></i>
+                        </div>
+                        <p class="text-sm text-slate-400">Databases</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 bg-dark border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Certifications</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- AWS Certification -->
+                <div class="aws-badge bg-slate-800 rounded-lg p-8 flex flex-col md:flex-row items-center">
+                    <div class="mb-6 md:mb-0 md:mr-8">
+                        <img src="https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png" alt="AWS Certified Solutions Architect" class="w-48 h-48 pulse">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-primary mb-2">AWS Certified Solutions Architect - Associate</h3>
+                        <p class="text-slate-400 mb-4">Valid: 2024 - 2027</p>
+                        <p class="text-slate-400 mb-6">Demonstrated ability to design and implement distributed systems on AWS following best practices.</p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="#" class="px-4 py-2 bg-primary text-slate-900 font-bold rounded-md hover:bg-opacity-90 transition duration-300 text-sm">
+                                Verify Credential
+                            </a>
+                            <a href="#" class="px-4 py-2 border border-primary text-primary font-bold rounded-md hover:bg-slate-700 transition duration-300 text-sm">
+                                View Exam Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Certifications -->
+                <div class="bg-slate-800 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Additional Certifications</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <i class="fas fa-certificate text-xl text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-slate-300">Certified Kubernetes Administrator (CKA)</h4>
+                                <p class="text-sm text-slate-500">Linux Foundation | 2023</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <i class="fas fa-certificate text-xl text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-slate-300">Terraform Associate</h4>
+                                <p class="text-sm text-slate-500">HashiCorp | 2023</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <i class="fas fa-certificate text-xl text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-slate-300">Microsoft Certified: Azure Fundamentals</h4>
+                                <p class="text-sm text-slate-500">Microsoft | 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="#" class="inline-flex items-center text-primary hover:underline">
+                            View All Certifications
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20 bg-dark border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">My Resume</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-slate-800 rounded-lg p-8 border border-slate-700">
+                    <div class="h-96 flex items-center justify-center bg-slate-900 rounded mb-6 border border-dashed border-slate-700">
+                        <div class="text-center">
+                            <i class="fas fa-file-pdf text-6xl text-primary mb-4"></i>
+                            <p class="text-slate-400">Prithviraj_Magar_3yrs_Experiance_2025_resume-1.pdf</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="flex-1 px-6 py-3 bg-primary text-slate-900 font-bold rounded-md hover:bg-opacity-90 transition duration-300 text-center">
+                            <i class="fas fa-download mr-2"></i> Download PDF
+                        </a>
+                        <a href="#" class="flex-1 px-6 py-3 border border-primary text-primary font-bold rounded-md hover:bg-slate-700 transition duration-300 text-center">
+                            <i class="fas fa-print mr-2"></i> Print Resume
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-slate-800 rounded-lg p-8 border border-slate-700">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Resume Highlights</h3>
+                    
+                    <div class="mb-8">
+                        <h4 class="text-lg font-bold text-primary mb-4">Key Achievements</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span class="text-slate-400">Reduced deployment times by 40% through CI/CD pipeline optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span class="text-slate-400">Implemented infrastructure monitoring that reduced incident response time by 35%</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span class="text-slate-400">Migrated 50+ services to Kubernetes with zero downtime</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-primary mt-1 mr-2"></i>
+                                <span class="text-slate-400">Automated server provisioning saving 20+ hours per week</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-bold text-primary mb-4">Technical Proficiencies</h4>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-xs text-primary mr-2"></i>
+                                <span class="text-sm text-slate-400">AWS Architecture</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-xs text-primary mr-2"></i>
+                                <span class="text-sm text-slate-400">Infrastructure as Code</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-xs text-primary mr-2"></i>
+                                <span class="text-sm text-slate-400">Container Orchestration</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-xs text-primary mr-2"></i>
+                                <span class="text-sm text-slate-400">CI/CD Pipelines</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-xs text-primary mr-2"></i>
+                                <span class="text-sm text-slate-400">Cloud Security</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-circle text-xs text-primary mr-2"></i>
+                                <span class="text-sm text-slate-400">Monitoring & Logging</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Get In Touch</span>
+                </h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-6">Contact Form</h3>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-slate-400 mb-1">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-slate-300" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-slate-400 mb-1">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-slate-300" placeholder="your.email@example.com">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-slate-400 mb-1">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-slate-300" placeholder="Subject">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-slate-400 mb-1">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-slate-300" placeholder="Your Message"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-primary text-slate-900 font-bold rounded-md hover:bg-opacity-90 transition duration-300">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <i class="fas fa-map-marker-alt text-xl text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-slate-300">Location</h4>
+                                <p class="text-slate-400">Pune, Maharashtra, India</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <i class="fas fa-envelope text-xl text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-slate-300">Email</h4>
+                                <p class="text-slate-400">prithviraj.magar@example.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <i class="fas fa-phone-alt text-xl text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-slate-300">Phone</h4>
+                                <p class="text-slate-400">+91 98765 43210</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-primary mb-6">Connect With Me</h3>
+                        <div class="flex space-x-6">
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-slate-800 rounded-full text-primary hover:bg-primary hover:text-slate-900 transition duration-300">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-slate-800 rounded-full text-primary hover:bg-primary hover:text-slate-900 transition duration-300">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-slate-800 rounded-full text-primary hover:bg-primary hover:text-slate-900 transition duration-300">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="#" class="w-12 h-12 flex items-center justify-center bg-slate-800 rounded-full text-primary hover:bg-primary hover:text-slate-900 transition duration-300">
+                                <i class="fab fa-aws text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12">
+                        <h3 class="text-2xl font-bold text-primary mb-6">AWS Region Map</h3>
+                        <div class="h-64 bg-slate-800 rounded-lg flex items-center justify-center border border-slate-700">
+                            <div class="text-center">
+                                <i class="fas fa-server text-5xl text-primary mb-4"></i>
+                                <p class="text-slate-400">ap-south-1 (Mumbai)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darker border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold text-primary">Prithviraj Magar</span>
+                    <p class="text-slate-400 mt-2">DevOps Engineer & Cloud Architect</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-400 hover:text-primary transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-primary transition duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-primary transition duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-primary transition duration-300">
+                        <i class="fab fa-aws"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-500 text-sm mb-4 md:mb-0">© 2023 Prithviraj Magar. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-slate-500 hover:text-primary text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-slate-500 hover:text-primary text-sm transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Typewriter effect
+        const typewriterText = "deploy cloud-infra";
+        const typewriterElement = document.getElementById('typewriter');
+        let i = 0;
+        
+        function typeWriter() {
+            if (i < typewriterText.length) {
+                typewriterElement.innerHTML += typewriterText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            } else {
+                // Add blinking cursor
+                typewriterElement.classList.add('typewriter');
+            }
+        }
+        
+        // Start typewriter effect
+        setTimeout(typeWriter, 500);
+        
+        // Console interaction
+        const consoleText = document.getElementById('console-text');
+        const consoleCommands = document.getElementById('console-commands');
+        
+        setTimeout(() => {
+            consoleText.textContent = "Type 'help' for available commands";
+        }, 3000);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Project card hover effect
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px)';
+                card.style.boxShadow = '0 15px 25px rgba(0, 245, 212, 0.2)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+        });
+        
+        // Skill badge hover effect
+        const skillBadges = document.querySelectorAll('.skill-badge');
+        
+        skillBadges.forEach(badge => {
+            badge.addEventListener('mouseenter', () => {
+                badge.style.transform = 'translateY(-5px)';
+                badge.style.boxShadow = '0 10px 20px rgba(0, 245, 212, 0.3)';
+            });
+            
+            badge.addEventListener('mouseleave', () => {
+                badge.style.transform = '';
+                badge.style.boxShadow = '';
+            });
+        });
+    </script>
+</body>
+</html>
